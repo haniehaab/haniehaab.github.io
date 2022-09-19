@@ -12,12 +12,18 @@ import { RippleModule } from 'primeng/ripple';
 import { RouterModule } from '@angular/router';
 import { AppLayoutComponent } from "./app-layout.component";
 import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
+import { AppSidebarComponent } from './app-sidebar/app-sidebar.component';
+import { AppMenuComponent } from './app-sidebar/app-menu/app-menu.component';
+import { AppMenuitemComponent } from './app-sidebar/app-menu/app-menuitem/app-menuitem.component';
 
 @NgModule({
     declarations: [
     
         AppLayoutComponent,
-        AppToolbarComponent
+        AppToolbarComponent,
+        AppSidebarComponent,
+        AppMenuComponent,
+        AppMenuitemComponent
     ],
     imports: [
         BrowserModule,
@@ -32,6 +38,6 @@ import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
         RippleModule,
         RouterModule
     ],
-    exports: [AppLayoutComponent, AppToolbarComponent ]
+    exports: [AppLayoutComponent, AppToolbarComponent,AppSidebarComponent ]
 })
 export class AppLayoutModule { }

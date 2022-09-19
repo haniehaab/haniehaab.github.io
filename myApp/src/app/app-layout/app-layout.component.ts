@@ -4,7 +4,7 @@ import { filter, Subscription } from 'rxjs';
 import { LayoutService } from "./service/app.layout.service";
 // import { AppSidebarComponent } from "./app.sidebar.component";
  import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
-
+ import { PrimeNGConfig } from "primeng/api";
 @Component({
     selector: 'app-layout',
     templateUrl: './app-layout.component.html'
@@ -21,7 +21,7 @@ export class AppLayoutComponent implements OnDestroy {
 
      @ViewChild(AppToolbarComponent) appToolbar!: AppToolbarComponent;
 
-    constructor(public layoutService: LayoutService, public renderer: Renderer2, public router: Router) {
+    constructor(public layoutService: LayoutService, public renderer: Renderer2, public router: Router,private primengConfig: PrimeNGConfig) {
         this.overlayMenuOpenSubscription = this.layoutService.overlayOpen$.subscribe(() => {
             // if (!this.menuOutsideClickListener) {
             //     this.menuOutsideClickListener = this.renderer.listen('document', 'click', event => {
@@ -56,6 +56,11 @@ export class AppLayoutComponent implements OnDestroy {
                 this.hideProfileMenu();
             });
     }
+
+    ngOnInit() {
+        
+        this.primengConfig.ripple = true;
+      }
 
     hideMenu() {
         this.layoutService.state.overlayMenuActive = false;

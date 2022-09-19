@@ -1,9 +1,25 @@
 <div class="layout-wrapper" [ngClass]="containerClass">
-    <app-toolbar></app-toolbar>
-    <!-- <div class="layout-sidebar">
-        <app-sidebar></app-sidebar>
+    
+  
+    <div class="grid">
+        <div class="col-12">
+            <app-toolbar></app-toolbar>
+        </div>
     </div>
-    <div class="layout-main-container">
+    <div class="grid">
+        <div class="col-3" style="padding: unset;">
+            <div class="layout-sidebar">
+                <app-sidebar></app-sidebar>
+            </div>
+        </div>
+    </div>
+
+
+   
+
+
+
+   <!--   <div class="layout-main-container">
         <div class="layout-main">
             <router-outlet></router-outlet>
         </div>
