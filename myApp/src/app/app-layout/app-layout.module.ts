@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CommonModule} from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { SidebarModule } from 'primeng/sidebar';
 import { BadgeModule } from 'primeng/badge';
@@ -22,14 +20,13 @@ import { AppMenuitemComponent } from './app-sidebar/app-menu/app-menuitem/app-me
         AppLayoutComponent,
         AppToolbarComponent,
         AppSidebarComponent,
-        AppMenuComponent,
+        AppMenuComponent, 
         AppMenuitemComponent
     ],
     imports: [
-        BrowserModule,
+        
         FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
+        CommonModule,
         InputTextModule,
         SidebarModule,
         BadgeModule,
