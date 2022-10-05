@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6">
+    <label for="exampleDataList" class="form-label">Country</label>
+    <input class="form-control" [formControl]="queryFieldCuontry" list="countryList" id="country" placeholder="Type to search...">
+    <datalist id="countryList">
+      <option  *ngFor="let cuntry of countries" value="{{cuntry.name}}">
+    </datalist>
+  </div>
+  <div class="col-md-6">
+    <label for="exampleDataList" class="form-label">city</label>
+    <input class="form-control" [formControl]="queryFieldCity" list="cityList" id="city" placeholder="Type to search...">
+    <datalist id="cityList">
+      <option  *ngFor="let city of cities" value="{{city.name}}">
+    </datalist>
+  </div>
+</div>
+
+
+
+
+
+
+

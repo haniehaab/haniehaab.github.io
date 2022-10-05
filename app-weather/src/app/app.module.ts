@@ -5,19 +5,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WeatherService } from './services/weather.service';
+import { SerarchComponent } from './serarch/serarch.component';
 @NgModule({
   declarations: [
    
     AppComponent,
-    WeatherComponent
+    WeatherComponent,
+    SerarchComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
