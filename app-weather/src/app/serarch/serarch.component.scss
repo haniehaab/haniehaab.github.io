@@ -1,0 +1,22 @@
+input {
+    background-color: var(--shadow-light);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 1em;
+    color: var(--grey-1);
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  label{
+    font-size: 12px;
+    width: 100%;
+    font-weight: bold;
+    color: #cbe94b;
+    text-align: center;
+  }
+
+  .search-wrap{
+    padding: 5px 0 25px 0;
+  }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from '../services/location.service';
+import { WeatherService } from '../services/weather.service';
 import { City } from '../models/Location.model';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
@@ -18,10 +19,10 @@ export class SerarchComponent implements OnInit {
   queryFieldCuontry: FormControl = new FormControl();
   queryFieldCity: FormControl = new FormControl();
 
-  selectedCountryID = 0;
-  selectedCityName = 0;
+  selectedCountryID = '';
+  selectedCityName = '';
 
-  constructor(private locationService: LocationService) { }
+  constructor(private locationService: LocationService, private weatherService: WeatherService) { }
 
   ngOnInit(): void {
 
@@ -31,15 +32,27 @@ export class SerarchComponent implements OnInit {
           distinctUntilChanged(),
           switchMap(queryField =>this.locationService.SearchCountries(queryField)))
     .subscribe((res: any)=> this.countries = res);
-    
+   
+  }
+
+
+  mySelectHandler(e:any){
+    debugger
+    let find = this.countries.find(x => x?.name === e.target.value);
+    this.selectedCountryID = find?.id;
     //search Cities
     this.queryFieldCity.valueChanges
     .pipe(debounceTime(200),
           distinctUntilChanged(),
-          switchMap(queryField =>this.locationService.SearchCities(queryField)))
+          switchMap(queryField =>this.locationService.SearchCities(queryField,this.selectedCountryID)))
     .subscribe((res: City[])=> this.cities = res);
-
-
+      
   }
 
+
+  setCity(e: any){
+    debugger
+    this.selectedCityName = e.target.value;
+    this.weatherService.LoadCurrentWeather(this.selectedCityName).subscribe();
+  }
 }

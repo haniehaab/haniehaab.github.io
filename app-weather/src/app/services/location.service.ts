@@ -14,9 +14,9 @@ export class LocationService {
   constructor(private http: HttpClient) {  }
 
 
-  SearchCities(queryString: string) {
+  SearchCities(queryString: string, selectedCountryID: string) {
     debugger
-    return this.http.get<City[]>('https://spott.p.rapidapi.com/places/autocomplete?limit=10&skip=0&country=US%2CCA&q='+ queryString +'&type=CITY', {
+    return this.http.get<City[]>('https://spott.p.rapidapi.com/places/autocomplete?limit=10&skip=0&country='+ selectedCountryID +'&q='+ queryString +'&type=CITY', {
       headers: new HttpHeaders()
       .set('X-RapidAPI-Key', 'd479109b24msh43ee867575ebc23p15f788jsn6ff116de8cd7')
       .set('X-RapidAPI-Host', 'spott.p.rapidapi.com'),
@@ -26,8 +26,6 @@ export class LocationService {
 
   }
 
-
-
   SearchCountries(queryString: string) {
  
     return this.http.get<any>('https://spott.p.rapidapi.com/places/autocomplete?limit=10&skip=0&q='+ queryString +'&type=COUNTRY', {
@@ -36,9 +34,6 @@ export class LocationService {
       .set('X-RapidAPI-Host', 'spott.p.rapidapi.com'),
       responseType: 'json'
     })
-
-
-
   }
 
 }
